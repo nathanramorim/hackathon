@@ -1,6 +1,9 @@
 <?php
 namespace App;
 class Helpers {
+    private $setup = [
+        'page' => 'Web Service',
+    ];
 
     public function __construct(){
         echo 'Hello';
@@ -34,6 +37,14 @@ class Helpers {
         return $arr[$status];
     }
     
+    public function setSetup($index,$label){
+        if(array_key_exists($index, $this->setup))
+        $this->setup[$index] = $label;
+    }
+
+    public function getSetup (){
+        return $this->setup;
+    }
 
     
 }

@@ -1,12 +1,11 @@
 <?php
 namespace App;
 use Models\Model;
-use Controllers\Pessoa;
 use App\Helpers;
 class Auth extends Model{
 
     public static function login($app,$request = null){
-        $app->render('login.php',['conf'=>(new Pessoa)->getSetup()]);
+        $app->render('login.php',['conf'=>(new Helpers)->getSetup()]);
     }
 
     public function userAuth($app,$request){
@@ -21,7 +20,7 @@ class Auth extends Model{
     }
 
     public function index($app){
-        $app->render('admin/home.php',['conf'=>(new Pessoa)->getSetup()]);
+        $app->render('admin/home.php',['conf'=>(new Helpers)->getSetup()]);
     }
 
     public function logout($app){
