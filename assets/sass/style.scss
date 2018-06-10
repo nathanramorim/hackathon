@@ -1,0 +1,28 @@
+$default-color: rgb(127, 186, 0);
+.color-default{color:rgb(127, 186, 0)}
+.circle{
+    border: 2px solid $default-color;
+    border-radius: 100%;
+    padding: 12px 0px 0px 0px;
+    height: 120px;
+    width: 120px;
+    text-align: center;
+    background: rgb(127, 186, 0);
+    clear: both;
+    i{
+        color:rgb(255, 255, 255);
+    }
+}
+.circle-small{
+    border: 2px solid $default-color;
+    border-radius: 100%;
+    padding: 0px 0px 0px 0px;
+    height: 28px;
+    width: 28px;
+    text-align: center;
+    background: rgb(127, 186, 0);
+    clear: both;
+    i{
+        color:rgb(255, 255, 255);
+    }
+}
