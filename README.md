@@ -1,4 +1,4 @@
-### UTILIZANDO A API ###
+# UTILIZANDO A API 
 
 Podem ser testados os REQUEST a partir do software Postman (https://www.getpostman.com)
 
@@ -17,7 +17,7 @@ OS métodos utilizado de RESQUEST são:
   }
   ```
  
-  # Foi utilizado o Slim Framework
+ # Foi utilizado o Slim Framework
 
 [![Build Status](https://travis-ci.org/slimphp/Slim.svg?branch=3.x)](https://travis-ci.org/slimphp/Slim)
 [![Coverage Status](https://coveralls.io/repos/github/slimphp/Slim/badge.svg?branch=3.x)](https://coveralls.io/github/slimphp/Slim?branch=3.x)
