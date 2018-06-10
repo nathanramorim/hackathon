@@ -29,5 +29,15 @@ class Auth extends Model{
         $app->redirect('../');
 
     }
+
+    public static function authenticationHTTP ($request){
+        $user = $request->headers->get('Php-Auth-User');
+        $pw = $request->headers->get('Php-Auth-Pw');
+        if('bmF0aGFuOjEyMzQ=' == base64_encode($user.':'.$pw)){
+            return 200;
+        }else{
+            return 400;
+        }
+    }
     
 }

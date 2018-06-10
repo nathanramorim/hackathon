@@ -1,25 +1,23 @@
 <?php
 namespace Controllers;
 use Models\Model;
+use App\Helpers;
+use App\Auth;
 
 class Agentes extends Model
 {
-    public function getLocation($request){
+    public function getLocation($app,$request){
         $data = json_decode($request->getBody(), true);
-        $user = $request->headers->get('Php-Auth-User');
-        $pw = $request->headers->get('Php-Auth-Pw');
+        
         $lt = $data['location']['latitude'];
         $lg = $data['location']['longitude'];
 
-        $encrypted = base64_encode($user.':'.$pw);
-        if($encrypted == 'bmF0aGFuOjEyMzQ=')
-        var_dump($data);
-
-
+        $status = Auth::authenticationHTTP($request);
+        $app->response->setStatus($status);
         
-        
+        echo Helpers::responseHTTP($status);
+    }   
 
-    }    
 }
 
 

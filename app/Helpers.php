@@ -24,7 +24,15 @@ class Helpers {
         $url = "//{$_SERVER['SERVER_NAME']}/{$path}";
         return $url;
     }
-
+    
+    public static function responseHTTP($status){
+        $arr = [
+            200 => '{"status":"OK"}',
+            400 => '{"status":"Unauthorized"}',
+            500 => '{"status":"Bad Request"}'
+        ];
+        return $arr[$status];
+    }
     
 
     

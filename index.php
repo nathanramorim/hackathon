@@ -64,7 +64,7 @@ $app->group('/admin',function() use ($app){
 		});
 
 		$app->post('/location', function() use ($app){
-			(new \Controllers\Agentes)->getLocation($app->request);
+			(new \Controllers\Agentes)->getLocation($app,$app->request);
 		});
 
 	});
