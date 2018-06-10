@@ -1,5 +1,5 @@
 <?php
-namespace controllers;
+namespace Controllers;
 
 use Models\Model;
 	/*

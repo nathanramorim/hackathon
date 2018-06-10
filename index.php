@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 //Autoload
 $loader = require 'vendor/autoload.php';
 
@@ -11,49 +10,79 @@ $app = new \Slim\Slim(array(
     'templates.path' => 'templates'
 ));
 
+
+/**
+ *  Default Route
+ */
+$app->get('/',function() use ($app){
+	(new \App\Auth)->userAuth($app,$app->request);
+});
+
+$app->post('/',function() use ($app){
+	(new \App\Auth)->userAuth($app,$app->request);
+});
+
 /**
  * Admins Group Routes
  */
-
-// $app->group('/', function () use ($app) {
-
-// 	// $authenticateForRole = function ( $role = 'member' ) {
-//     // return function () use ( $role ) {
-        
-//     //     if ( $role == 'page' ) {
-//     //         $app = \Slim\Slim::getInstance();
-//     //         $app->flash('error', 'Login required');
-//     //         $app->redirect('login');
-//     //     }
-//     // 	};
-// 	// };
-
-	$app->group('/admin',function() use ($app){
-		
-		$app->get('/home', function() use ($app){
-			(new \App\Auth)->index($app,$app->request);
-		});	
-		$app->get('/logout', function() use ($app){
-			(new \App\Auth)->logout($app);
-		});
-	});
-
+$app->group('/admin',function() use ($app){
 	
-	$app->get('/procriativo',function() use ($app){
-		$app->render('google-longitude-latitude.php');
+	$app->get('/home', function() use ($app){
+		(new \App\Auth)->index($app,$app->request);
+	});	
+	$app->get('/logout', function() use ($app){
+		(new \App\Auth)->logout($app);
 	});
 
-	$app->get('/',function() use ($app){
-		(new \App\Auth)->userAuth($app,$app->request);
-	});
+	$app->group('/chamados', function() use ($app){
 
-	$app->get('/mapa',function() use ($app){
-		$app->render('admin/map.php');
-	});
+		$app->get('/listar', function() use ($app){
+			(new \Controllers\Chamados)->listar($app);
+		});
 
-	$app->post('/',function() use ($app){
-		(new \App\Auth)->userAuth($app,$app->request);
+		$app->get('/cadastrar', function() use ($app){
+			(new \Controllers\Chamados)->addNew($app,$app->request);
+		});
+
+		$app->post('/cadastrar', function() use ($app){
+			(new \Controllers\Chamados)->addNew($app,$app->request);
+		});
+
 	});
+	$app->group('/agentes', function() use ($app){
+
+		$app->get('/listar', function() use ($app){
+			(new \Controllers\Agentes)->listar($app);
+		});
+
+		$app->get('/cadastrar', function() use ($app){
+			(new \Controllers\Agentes)->addNew($app,$app->request);
+		});
+
+		$app->post('/cadastrar', function() use ($app){
+			(new \Controllers\Agentes)->addNew($app,$app->request);
+		});
+
+		$app->post('/location', function() use ($app){
+			(new \Controllers\Agentes)->getLocation($app->request);
+		});
+
+	});
+});
+
+
+$app->get('/procriativo',function() use ($app){
+	$app->render('google-longitude-latitude.php');
+});
+
+/**
+ * Route Map
+ */
+$app->get('/mapa',function() use ($app){
+	$app->render('admin/map.php');
+});
+
+
 
 // });
 

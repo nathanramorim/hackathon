@@ -1,9 +1,14 @@
 <?php include_once('templates/head.php') ?>
 <?php include_once('templates/navbar.php') ?>
 <div class="container-fluid">
+<style>
+#map {
+        height: 90vh;
+      }
+</style>
     <?php if(isset($_SESSION['auth'])) : ?>
         <div class="row">
-            <iframe src="/mapa" frameborder="0" width="100%" height="600px"></iframe>
+            <div class="col-md-12" id="map"></div>
         </div>
     <?php else: ?>
         <div class="alert alert-danger">Você foi deslogado.</div>
