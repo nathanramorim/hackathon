@@ -5,10 +5,6 @@ class Helpers {
         'page' => 'Web Service',
     ];
 
-    public function __construct(){
-        echo 'Hello';
-    }
-
     public static function setSession($name,$session){
         $_SESSION[$name] = $session;
     }

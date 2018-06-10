@@ -73,8 +73,7 @@ $(function(){
 
 
     };
-    console.log(agents);
-    const infowindow = new google.maps.InfoWindow();
+    
     const image = '../assets/img/icons/placeholder.png';
     
     const utMaps = {
@@ -136,20 +135,6 @@ $(function(){
         }
     
     }
-    
+    const infowindow = new google.maps.InfoWindow();
     utMaps.initMap();
 });
-
-function drop() {
-    for (var i = 0; i < markerArray.length; i++) {
-        setTimeout(function () {
-            addMarkerMethod();
-        }, i * 200);
-    }
-}
-
-
-   
-
-
-

@@ -1,5 +1,5 @@
-<?php include_once('templates/head.php') ?>
-<?php include_once('templates/navbar.php') ?>
+<?php include_once('views/head.php') ?>
+<?php include_once('views/navbar.php') ?>
 <div class="container-fluid">
 <style>
 #map {
@@ -14,4 +14,4 @@
         <div class="alert alert-danger">Você foi deslogado.</div>
     <?php endif ?>
 </div>
-<?php include_once('templates/footer.php') ?>
+<?php include_once('views/footer.php') ?>

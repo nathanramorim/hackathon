@@ -7,7 +7,7 @@ $loader = require 'vendor/autoload.php';
 
 //Configurando a pasta templates
 $app = new \Slim\Slim(array(
-    'templates.path' => 'templates'
+    'templates.path' => 'views'
 ));
 
 
